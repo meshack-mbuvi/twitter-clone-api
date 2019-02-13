@@ -1,0 +1,48 @@
+2019-10-15 17:34:27.416 EAT [33896] LOG:  listening on IPv6 address "::1", port 5432
+2019-10-15 17:34:27.416 EAT [33896] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2019-10-15 17:34:27.418 EAT [33896] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2019-10-15 17:34:27.542 EAT [33902] LOG:  database system was shut down at 2019-09-30 12:02:52 EAT
+2019-10-15 17:34:27.619 EAT [33896] LOG:  database system is ready to accept connections
+2019-10-15 17:34:30.164 EAT [33921] FATAL:  lock file "postmaster.pid" already exists
+2019-10-15 17:34:30.164 EAT [33921] HINT:  Is another postmaster (PID 33896) running in data directory "/usr/local/var/postgres"?
+2019-10-15 17:34:36.588 EAT [33933] FATAL:  database "twitter_dev" does not exist
+2019-10-15 17:53:46.958 EAT [35026] ERROR:  duplicate key value violates unique constraint "Users_username_key"
+2019-10-15 17:53:46.958 EAT [35026] DETAIL:  Key (username)=(meshackmbuvi) already exists.
+2019-10-15 17:53:46.958 EAT [35026] STATEMENT:  INSERT INTO "Users" ("id","name","password","email","username","createdAt","updatedAt") VALUES (DEFAULT,'meshack mbuvi','$2b$10$HX2KAnyXMYn4jMCj0inWXuRFDyhKYxTw.AAxr/c0YeJcfxGUkW.i2','meshmbuvi@gmail.com','meshackmbuvi','2019-10-15 14:53:46.944 +00:00','2019-10-15 14:53:46.944 +00:00') RETURNING *;
+2019-10-15 21:43:07.970 EAT [39664] ERROR:  column Twit.user_id does not exist at character 223
+2019-10-15 21:43:07.970 EAT [39664] STATEMENT:  SELECT "Twit"."id", "Twit"."text", "Twit"."createdAt", "author"."id" AS "author.id", "author"."name" AS "author.name", "author"."username" AS "author.username" FROM "Twits" AS "Twit" LEFT OUTER JOIN "Users" AS "author" ON "Twit"."user_id" = "author"."id" ORDER BY "Twit"."createdAt" DESC;
+2019-10-15 21:43:08.041 EAT [39663] ERROR:  column Twit.user_id does not exist at character 223
+2019-10-15 21:43:08.041 EAT [39663] STATEMENT:  SELECT "Twit"."id", "Twit"."text", "Twit"."createdAt", "author"."id" AS "author.id", "author"."name" AS "author.name", "author"."username" AS "author.username" FROM "Twits" AS "Twit" LEFT OUTER JOIN "Users" AS "author" ON "Twit"."user_id" = "author"."id" ORDER BY "Twit"."createdAt" DESC;
+2019-10-15 21:43:08.161 EAT [39663] ERROR:  column Twit.user_id does not exist at character 223
+2019-10-15 21:43:08.161 EAT [39663] STATEMENT:  SELECT "Twit"."id", "Twit"."text", "Twit"."createdAt", "author"."id" AS "author.id", "author"."name" AS "author.name", "author"."username" AS "author.username" FROM "Twits" AS "Twit" LEFT OUTER JOIN "Users" AS "author" ON "Twit"."user_id" = "author"."id" ORDER BY "Twit"."createdAt" DESC;
+2019-10-15 21:43:08.174 EAT [39662] ERROR:  column Twit.user_id does not exist at character 223
+2019-10-15 21:43:08.174 EAT [39662] STATEMENT:  SELECT "Twit"."id", "Twit"."text", "Twit"."createdAt", "author"."id" AS "author.id", "author"."name" AS "author.name", "author"."username" AS "author.username" FROM "Twits" AS "Twit" LEFT OUTER JOIN "Users" AS "author" ON "Twit"."user_id" = "author"."id" ORDER BY "Twit"."createdAt" DESC;
+2019-10-15 22:31:12.288 EAT [41243] ERROR:  cannot drop table "Twits" because other objects depend on it
+2019-10-15 22:31:12.288 EAT [41243] DETAIL:  constraint Reply_TwitId_fkey on table "Reply" depends on table "Twits"
+	constraint Reply_replyId_fkey on table "Reply" depends on table "Twits"
+2019-10-15 22:31:12.288 EAT [41243] HINT:  Use DROP ... CASCADE to drop the dependent objects too.
+2019-10-15 22:31:12.288 EAT [41243] STATEMENT:  DROP TABLE IF EXISTS "Twits";
+2019-10-15 22:31:31.813 EAT [34467] ERROR:  cannot drop table "Twits" because other objects depend on it
+2019-10-15 22:31:31.813 EAT [34467] DETAIL:  constraint Reply_TwitId_fkey on table "Reply" depends on table "Twits"
+	constraint Reply_replyId_fkey on table "Reply" depends on table "Twits"
+2019-10-15 22:31:31.813 EAT [34467] HINT:  Use DROP ... CASCADE to drop the dependent objects too.
+2019-10-15 22:31:31.813 EAT [34467] STATEMENT:  DROP TABLE public."Twits";
+2019-10-15 22:31:39.587 EAT [34467] ERROR:  cannot drop table "Users" because other objects depend on it
+2019-10-15 22:31:39.587 EAT [34467] DETAIL:  constraint Follow_following_id_fkey on table "Follow" depends on table "Users"
+	constraint Follow_follower_id_fkey on table "Follow" depends on table "Users"
+2019-10-15 22:31:39.587 EAT [34467] HINT:  Use DROP ... CASCADE to drop the dependent objects too.
+2019-10-15 22:31:39.587 EAT [34467] STATEMENT:  DROP TABLE public."Users";
+2019-10-15 22:32:01.975 EAT [41269] ERROR:  relation "public.Users" does not exist
+2019-10-15 22:32:01.975 EAT [41269] STATEMENT:  ALTER TABLE "public"."Users" ADD COLUMN "bio" VARCHAR(80);
+2019-10-15 22:32:30.616 EAT [41290] ERROR:  relation "user" does not exist
+2019-10-15 22:32:30.616 EAT [41290] STATEMENT:  CREATE TABLE IF NOT EXISTS "Twits" ("id"   SERIAL , "text" VARCHAR(255) NOT NULL, "author_id" INTEGER NOT NULL REFERENCES "user" ("id") ON DELETE CASCADE ON UPDATE CASCADE, "createdAt" TIMESTAMP WITH TIME ZONE NOT NULL, "updatedAt" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY ("id"));
+2019-10-15 22:32:46.642 EAT [41329] ERROR:  relation "User" does not exist
+2019-10-15 22:32:46.642 EAT [41329] STATEMENT:  CREATE TABLE IF NOT EXISTS "Twits" ("id"   SERIAL , "text" VARCHAR(255) NOT NULL, "author_id" INTEGER NOT NULL REFERENCES "User" ("id") ON DELETE CASCADE ON UPDATE CASCADE, "createdAt" TIMESTAMP WITH TIME ZONE NOT NULL, "updatedAt" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY ("id"));
+2019-10-15 22:32:56.315 EAT [41363] ERROR:  relation "users" does not exist
+2019-10-15 22:32:56.315 EAT [41363] STATEMENT:  CREATE TABLE IF NOT EXISTS "Twits" ("id"   SERIAL , "text" VARCHAR(255) NOT NULL, "author_id" INTEGER NOT NULL REFERENCES "users" ("id") ON DELETE CASCADE ON UPDATE CASCADE, "createdAt" TIMESTAMP WITH TIME ZONE NOT NULL, "updatedAt" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY ("id"));
+2019-10-15 22:46:19.990 EAT [41974] ERROR:  null value in column "author_id" violates not-null constraint
+2019-10-15 22:46:19.990 EAT [41974] DETAIL:  Failing row contains (1, testing, null, 2019-10-15 19:46:19.981+00, 2019-10-15 19:46:19.981+00).
+2019-10-15 22:46:19.990 EAT [41974] STATEMENT:  INSERT INTO "Twits" ("id","text","createdAt","updatedAt") VALUES (DEFAULT,'testing','2019-10-15 19:46:19.981 +00:00','2019-10-15 19:46:19.981 +00:00') RETURNING *;
+2019-10-15 22:49:51.734 EAT [42111] ERROR:  null value in column "author_id" violates not-null constraint
+2019-10-15 22:49:51.734 EAT [42111] DETAIL:  Failing row contains (2, wqere, null, 2019-10-15 19:49:51.727+00, 2019-10-15 19:49:51.727+00).
+2019-10-15 22:49:51.734 EAT [42111] STATEMENT:  INSERT INTO "Twits" ("id","text","createdAt","updatedAt") VALUES (DEFAULT,'wqere','2019-10-15 19:49:51.727 +00:00','2019-10-15 19:49:51.727 +00:00') RETURNING *;
